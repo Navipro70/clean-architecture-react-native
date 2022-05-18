@@ -1,16 +1,15 @@
-import { StackScreenProps } from '@react-navigation/stack'
 import React from 'react'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useTheme } from 'styled-components/native'
 
 import { MenuView } from '~/components'
 import { useSnackbar } from '~/hooks'
-import { AppRoutes, TabRoutes, TabStackParams } from '~/navigation'
+import { AppRoutes, TabRoutes, TabStackScreenProps } from '~/navigation'
 import { ThemeValue } from '~/types'
 
 import { Container } from './SettingsScreen.style'
 
-type Props = StackScreenProps<TabStackParams, TabRoutes.Settings>
+type Props = TabStackScreenProps<TabRoutes.Settings>
 
 export const SettingsScreen = ({ navigation }: Props) => {
   const { onChangeTheme } = useTheme()
@@ -21,6 +20,7 @@ export const SettingsScreen = ({ navigation }: Props) => {
   const setLightTheme = () => onChangeTheme(ThemeValue.Light)
   const setSystemTheme = () => onChangeTheme(ThemeValue.System)
   const onOpenModal = () => navigation.navigate(AppRoutes.Modal)
+  const onOpenProfile = () => navigation.navigate(AppRoutes.Profile)
   const onOpenSnackbar = () => snackbar.open('This is a snackbar')
 
   const themeItems = [
@@ -31,6 +31,7 @@ export const SettingsScreen = ({ navigation }: Props) => {
   const infoItems = [
     { text: 'Show modal', action: onOpenModal },
     { text: 'Show snackbar', action: onOpenSnackbar },
+    { text: 'Open profile', action: onOpenProfile },
   ]
 
   return (

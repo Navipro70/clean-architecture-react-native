@@ -8,11 +8,7 @@ import { HomeScreen, SettingsScreen } from '~/screens'
 import { TabRoutes } from '../../Routes'
 
 import { tabScreensOption } from './TabNavigator.options'
-
-export interface TabStackParams extends Record<string, object | undefined> {
-  [TabRoutes.Home]: undefined
-  [TabRoutes.Settings]: undefined
-}
+import { TabStackParams } from './TabNavigator.types'
 
 const Stack = createBottomTabNavigator<TabStackParams>()
 

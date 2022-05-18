@@ -7,6 +7,7 @@ import { enableFreeze } from 'react-native-screens'
 import { ThemeProvider } from 'styled-components/native'
 
 import { StyledSafeAreaProvider, ErrorBoundary } from './components'
+import { linking } from './constants'
 import { SnackbarProvider, StoreProvider, useInitTheme } from './hooks'
 import { AppNavigator } from './navigation'
 import { StorageService } from './services'
@@ -40,11 +41,11 @@ export const App = () => {
       <StyledSafeAreaProvider>
         <ErrorBoundary>
           <StoreProvider>
-            <NavigationContainer theme={navTheme}>
-                <SnackbarProvider>
-                  <StatusBar {...statusBarProps} />
-                  <AppNavigator />
-                </SnackbarProvider>
+            <NavigationContainer linking={linking} theme={navTheme}>
+              <SnackbarProvider>
+                <StatusBar {...statusBarProps} />
+                <AppNavigator />
+              </SnackbarProvider>
             </NavigationContainer>
           </StoreProvider>
         </ErrorBoundary>

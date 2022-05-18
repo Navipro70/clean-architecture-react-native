@@ -27,6 +27,6 @@ declare module 'styled-components' {
 
 declare global {
   namespace ReactNavigation {
-    type RootParamList = AppStackParams
+    export type RootParamList = AppStackParams
   }
 }
