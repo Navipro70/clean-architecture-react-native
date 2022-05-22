@@ -7,4 +7,7 @@ And one assumption: Domain layer is bouded up with MOBX. Yep, domain layer depen
 [Reference](https://github.com/bespoyasov/frontend-clean-architecture) of common realization <br/>
 [Reference](https://github.com/xurxodev/frontend-clean-architecture) super example of interfaces usage and Dependency Invertion. Also great "Screaming architecture" moduling.
 
-Husky test: 2
+Husky:
+
+Before every commit husky execute lint-staged command from package.json.
+If any tests will be added, a good idea is execute them in husky pre-push hook
