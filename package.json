@@ -12,7 +12,8 @@
     "pods": "yarn && cd ios && pod install && cd ..",
     "ts:check": "tsc --watch",
     "ts:check:ci": "tsc",
-    "clean": "rm -rf $TMPDIR/react-native-packager-cache-* && rm -rf $TMPDIR/metro-bundler-cache-* && rm -rf node_modules/ && yarn cache clean --force && yarn install && yarn start --reset-cache"
+    "clean": "rm -rf $TMPDIR/react-native-packager-cache-* && rm -rf $TMPDIR/metro-bundler-cache-* && rm -rf node_modules/ && yarn cache clean --force && yarn install && yarn start --reset-cache",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
