@@ -1,14 +1,16 @@
-import React from 'react';
+import React from 'react'
 import { Text } from 'react-native'
 
-export class ErrorBoundary extends React.Component<{}, { hasError: boolean }> {
-  constructor(props: {}) {
-    super(props);
-    this.state = { hasError: false };
+type NullableProps = Record<string, never>
+
+export class ErrorBoundary extends React.Component<NullableProps, { hasError: boolean }> {
+  constructor(props: NullableProps) {
+    super(props)
+    this.state = { hasError: false }
   }
 
   static getDerivedStateFromError() {
-    return { hasError: true };
+    return { hasError: true }
   }
 
   componentDidCatch(error: Error) {
@@ -16,15 +18,16 @@ export class ErrorBoundary extends React.Component<{}, { hasError: boolean }> {
   }
 
   resetError = () => {
-    this.setState({ hasError: false });
-  };
+    // eslint-disable-next-line react/no-set-state
+    this.setState({ hasError: false })
+  }
 
   render() {
     if (this.state.hasError) {
-        // TODO add your custom error view
-      return <Text />;
+      // TODO add your custom error view
+      return <Text />
     }
 
-    return this.props.children;
+    return this.props.children
   }
 }
