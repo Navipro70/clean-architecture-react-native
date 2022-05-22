@@ -1,10 +1,8 @@
 import React from 'react'
 import { Text } from 'react-native'
 
-type NullableProps = Record<string, never>
-
-export class ErrorBoundary extends React.Component<NullableProps, { hasError: boolean }> {
-  constructor(props: NullableProps) {
+export class ErrorBoundary extends React.Component<object, { hasError: boolean }> {
+  constructor(props: object) {
     super(props)
     this.state = { hasError: false }
   }
@@ -19,7 +17,9 @@ export class ErrorBoundary extends React.Component<NullableProps, { hasError: bo
 
   resetError = () => {
     // eslint-disable-next-line react/no-set-state
-    this.setState({ hasError: false })
+    this.setState({
+      hasError: false,
+    })
   }
 
   render() {

@@ -76,7 +76,7 @@
     "typescript": "4.4"
   },
   "lint-staged": {
-    "*": [
+    "src/**/*.{ts,tsx}": [
       "yarn format",
       "yarn lint"
     ]
